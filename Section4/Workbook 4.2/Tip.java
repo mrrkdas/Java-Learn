@@ -22,4 +22,9 @@ public class Tip {
      *  2. Prints: Your service was wonderful! Please, accept this tip: $<tip>
      */
 
+     public static void tipTheWaiter(double bill) { //parameters are the things that are needed to run the functions, arguments are the values that get passd into the function
+        double tip = 0.15 * bill;
+        System.out.println("our service was wonderful! Please, accept this tip: $" + tip);
+     }
+
 }

@@ -10,6 +10,7 @@ public class RockPaperScissors {
         System.out.println("Are you ready? Write 'yes' if you are.");
 
     //Task 1: See if the user wants to play. 
+        String ready = scan.nextLine(); //see what nextLine and next have difference;
 
     /*Task 2: Set up the game
     
@@ -20,11 +21,26 @@ public class RockPaperScissors {
              – pick up user's choice.
              – get the computer choice (can only be done after task 3).
              – get the result (can only be done after task 4)
-             – print everything (can only be done after task 5).
+             – print everything (can only be done after task 5). 
 
        • else:
              – print: Darn, some other time...!        
     */
+
+        if (ready.equals("yes")) {
+            System.out.println("Great");
+            System.out.println("rock - paper - scissors, shoot!");
+            String yourChoice = scan.next();
+            String computerChoice = computerChoice();
+
+            String result = result(yourChoice, computerChoice);
+
+            printResult(yourChoice, computerChoice, result);
+
+
+        } else {
+            System.out.println("Darn, some other time...!");
+        }
               
 
         scan.close();
@@ -44,7 +60,16 @@ public class RockPaperScissors {
      *      if 2: returns the choice 'scissors'
      */
 
-
+    public static String computerChoice() {
+        
+        int choice = (int) (Math.random() * 3);
+        switch (choice) {
+            case 0: return "rock";
+            case 1: return "paper";
+            case 2: return "scissors";
+            default: return "";
+        }
+    }
 
 
     //Task 4  – Write a function that compares the choices and returns the result.
@@ -79,6 +104,29 @@ public class RockPaperScissors {
 
     public static String result(String yourChoice, String computerChoice) {
         String result = "";
+        if (yourChoice.equals("rock") && computerChoice.equals("scissors")) {
+            result = "You Win!!";
+        } else if (yourChoice.equals("paper") && computerChoice.equals("rock")) {
+            result = "You Win!!";
+        } else if (yourChoice.equals("scissors") && computerChoice.equals("paper")) {
+            result = "You Win!!";
+        }
+
+        if (yourChoice.equals("scissors") && computerChoice.equals("rock")) {
+            result = "You Lose!!";
+        } else if (yourChoice.equals("paper") && computerChoice.equals("scissors")) {
+            result = "You Lose!!";
+        } else if (yourChoice.equals("rock") && computerChoice.equals("paper")) {
+            result = "You Lose!!";
+        } 
+
+        if (yourChoice.equals(computerChoice)) {
+            result = "Tie";
+        } else {
+            result = "Invalid choice";
+        }
+
+
 
         return result;
       }
@@ -98,5 +146,11 @@ public class RockPaperScissors {
      *      – prints: The computer chose: <computer choice>
      *      – prints: <result>
      */
+
+     public static void printResult(String yourChoice, String computerChoice, String result) {
+        System.out.println("You chose: "+ yourChoice);
+        System.out.println("The computer chose: " + computerChoice);
+        System.out.println("Result: " + result(yourChoice, computerChoice));
+     }
 
 }
