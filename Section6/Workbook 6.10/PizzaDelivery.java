@@ -11,15 +11,27 @@ public class PizzaDelivery {
         int numToppings = scan.nextInt(); 
         scan.nextLine(); // Throwaway nextLine() to avoid nextLine() trap. Since it comes after nextInt(), it will just get skipped anyway.
         
-        System.out.println("Great, enter each topping!");
+        
         
         String[] toppings = new String[numToppings]; // Length of array equals what the user inputs.
         
         // Task 1 here
+
+        for (int index = 0; index < toppings.length; index++) {
+            System.out.println("Great, enter each topping!");
+            System.out.print(index+". ");
+            String topping = scan.nextLine(); //you can just straight save it into the array
+            toppings[index] = topping;
+        }
         
-        System.out.println("\nThank you! Here are the toppings you ordered");
+        
         
         // Task 2 here
+
+        for (int i = 0; i < toppings.length; i++) {
+            System.out.println("\nThank you! Here are the toppings you ordered");
+            System.out.println(i+". " + toppings[i]);
+        }
         
         System.out.println("\nPress anything to confirm your order.");
         scan.nextLine();

@@ -7,12 +7,15 @@ public class Javapedia {
         System.out.println("How many historical figures will you register?");
         //Task 1 – Ask the user: how many historical figures will you register?
         //       – Store the value.
+
+        int figures = scan.nextInt();
         
-        //Task 2 – Create a 2D array with a variable number of rows, and 3 values per row.         
+        //Task 2 – Create a 2D array with a variable number of rows, and 3 values per row.  
+        String[][] database = new String[figures][3];       
          
         //Watch out for the nextLine() pitfall. 
         /* Task 3 
-        for (____) {
+        for () {
 
             System.out.println("\n\tFigure " + (i+1)); 
 
@@ -30,10 +33,45 @@ public class Javapedia {
         }
         
         */
+
+        for (int i = 0; i < database.length; i++) {
+            System.out.println("\n\tFigure " + (i+1)); 
+
+            System.out.print("\t - Name: ");
+            database[i][0] = scan.nextLine();
+            System.out.print("\t - Date of birth: ");
+            database[i][1] = scan.nextLine();
+
+            System.out.print("\t - Occupation: ");
+            database[i][2] = scan.nextLine();
+
+            System.out.print("\n");
+        }
+
+
+
+
+
+
+
+
+
+
         System.out.println("These are the values you stored:"); 
+        print2DArray(database);
         //Task 4: call print2DArray. 
 
+
         System.out.print("\nWho do you want information on? ");  
+        String name = scan.nextLine();
+
+        for (int i = 0; i < database.length; i++) {
+            if (database[i][0].equals(name)) {
+                System.out.println("Name: " + database[i][0]);
+                System.out.println("DOB: " + database[i][1]);
+                System.out.println("Occupation" + database[i][2]);
+            }
+        }
         
         /*Task 5: Let the user search the database by name. 
             If there's a match:
@@ -57,4 +95,11 @@ public class Javapedia {
      *     • print a new line.
      */
 
+    public static void print2DArray(String[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i][0]+" "+array[i][1]+" "+array[i][2]);
+        }
+    }
 }
+
+
