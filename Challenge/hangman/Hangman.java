@@ -67,6 +67,24 @@ public class Hangman {
     " =========\n"};
 
     public static void main(String[] args) {
+        // Our word
+        String word = randomWord(words);
+
+        int wrongGuesses = 0;
+
+        while (wrongGuesses < 6) {
+            showHangman(wrongGuesses);
+            System.out.println("\n\n");
+            displayWord(word);
+
+            
+
+
+
+        }
+
+        System.out.println("RIP!");
+
 
 
 
@@ -74,6 +92,57 @@ public class Hangman {
 
 
     }
+
+
+
+
+    /* Function that chooses random word
+    Name: randomWord
+     * @param words
+     * @return string
+     * Generates random number between length of array and 0
+     */
+
+    // TASK ONE
+
+    public static String randomWord(String[] words) {
+        int randomNumber = (int) (Math.random() *( words.length -1));
+        return words[randomNumber];
+    }
+
+    /* 
+     * 
+     * Name: showHangman
+     * This function will show the right hangman depending on the number of letters wrongly guessed
+     * @param wrongGuesses (int)
+     */
+
+    //TASK TWO
+    public static void showHangman(int wrongGuesses) {
+        System.out.print(gallows[wrongGuesses]);
+    }
+
+    /*
+     * Name displayWord
+     * @param word
+     * shows word in -
+     */
+
+    public static void displayWord(String word) {
+        char[] charWordArray = word.toCharArray();
+        char[] underscoreDisplay = new char[charWordArray.length];
+
+        for (int i = 0; i < underscoreDisplay.length; i++) {
+            underscoreDisplay[i] = '-';
+        }
+
+        System.out.println("Word: " + underscoreDisplay.toString());
+    }
+
+
+    
+
+
 
 }
 
